@@ -10,6 +10,7 @@ script = ExtResource("1_4tvwp")
 customerScene = ExtResource("2_ahmme")
 
 [node name="Player" parent="." instance=ExtResource("1_mj7dn")]
+position = Vector2(294, 127)
 
 [node name="Ingredient" parent="." instance=ExtResource("2_m4uao")]
 
@@ -17,5 +18,6 @@ customerScene = ExtResource("2_ahmme")
 position = Vector2(163, 663)
 
 [node name="AddCustomer" type="Timer" parent="."]
+wait_time = 2.5
 
 [connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]

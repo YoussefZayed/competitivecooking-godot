@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://djsjhg5if37hk"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_kfaek"]
+[ext_resource type="Texture2D" uid="uid://dsxh70liixfvt" path="res://icon.svg" id="2_pciq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3pkiv"]
+radius = 24.0832
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o40r8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pciq3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_kfaek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3pkiv")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o40r8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

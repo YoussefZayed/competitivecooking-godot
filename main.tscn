@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://4aq1iv46rn6y"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_4tvwp"]
+[ext_resource type="PackedScene" uid="uid://djsjhg5if37hk" path="res://player.tscn" id="1_mj7dn"]
+[ext_resource type="PackedScene" uid="uid://bd3ja00hjbc3k" path="res://Customer.tscn" id="2_ahmme"]
+[ext_resource type="PackedScene" uid="uid://1yyi5p0mypde" path="res://ingredient.tscn" id="2_m4uao"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_4tvwp")
+customerScene = ExtResource("2_ahmme")
+
+[node name="Player" parent="." instance=ExtResource("1_mj7dn")]
+
+[node name="Ingredient" parent="." instance=ExtResource("2_m4uao")]
+
+[node name="Ingredient2" parent="." instance=ExtResource("2_m4uao")]
+position = Vector2(163, 663)
+
+[node name="AddCustomer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]

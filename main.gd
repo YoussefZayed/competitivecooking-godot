@@ -45,7 +45,6 @@ func _on_add_customer_timeout():
 
 func _on_player_customer_destroyed():
 	numCustomers -=1
-<<<<<<< Updated upstream
 	points += 100
 
 
@@ -55,6 +54,4 @@ func _on_add_ingredient_timeout():
 	ingredient.position = Vector2(rng.randf_range(20, 290.0), rng.randf_range(500.0, 810.0))
 	add_child(ingredient)
 	
-=======
-	points += 100
->>>>>>> Stashed changes
+

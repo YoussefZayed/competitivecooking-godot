@@ -8,17 +8,16 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_4tvwp")
 customerScene = ExtResource("2_ahmme")
+ingredientsLeft = ExtResource("2_m4uao")
 
 [node name="Player" parent="." instance=ExtResource("1_mj7dn")]
-position = Vector2(294, 127)
-
-[node name="Ingredient" parent="." instance=ExtResource("2_m4uao")]
-
-[node name="Ingredient2" parent="." instance=ExtResource("2_m4uao")]
-position = Vector2(163, 663)
+position = Vector2(519, 530)
 
 [node name="AddCustomer" type="Timer" parent="."]
 wait_time = 2.5
+
+[node name="AddIngredient" type="Timer" parent="."]
+wait_time = 2.18
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 80.0
@@ -26,3 +25,4 @@ offset_bottom = 73.0
 
 [connection signal="customerDestroyed" from="Player" to="." method="_on_player_customer_destroyed"]
 [connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]
+[connection signal="timeout" from="AddIngredient" to="." method="_on_add_ingredient_timeout"]

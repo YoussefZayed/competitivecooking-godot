@@ -1,5 +1,6 @@
 extends Node
 @export var customerScene: PackedScene
+@export var ingredientsLeft: PackedScene
 var customer
 var positionToBeAt =  Vector2(0,300)
 @export var numCustomers = 0
@@ -9,6 +10,7 @@ var positionToBeAt =  Vector2(0,300)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AddCustomer.start()
+	$AddIngredient.start()
 	pass # Replace with function body
 
 
@@ -41,3 +43,11 @@ func _on_add_customer_timeout():
 
 func _on_player_customer_destroyed():
 	numCustomers -=1
+
+
+func _on_add_ingredient_timeout():
+	var rng = RandomNumberGenerator.new()
+	var ingredient = ingredientsLeft.instantiate()
+	ingredient.position = Vector2(rng.randf_range(20, 290.0), rng.randf_range(500.0, 810.0))
+	add_child(ingredient)
+	

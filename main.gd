@@ -23,6 +23,10 @@ func _process(delta):
 		if (customer.position.y > positionToBeAt.y):
 			customer.position.y = positionToBeAt.y
 	$Label.text = "Points: %d" % points
+	$ProgressBar.value = points / 10 % 100
+	$AddCustomer.wait_time = clampf(2.5 - points / 500, 0.5,10.0)
+	$AddIngredient.wait_time = clampf(2.3 - points / 500, 0.5,10.0)
+	$Player.speed = 400 +  points / 5 
 
 
 func _on_add_customer_timeout():

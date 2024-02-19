@@ -50,6 +50,7 @@ func _on_add_customer_timeout():
 func _on_player_customer_destroyed():
 	numCustomers -=1
 	points += 100
+	$AudioStreamPlayer2D.play()
 
 
 func _on_add_ingredient_timeout():

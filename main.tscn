@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4aq1iv46rn6y"]
+[gd_scene load_steps=6 format=3 uid="uid://4aq1iv46rn6y"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4tvwp"]
 [ext_resource type="PackedScene" uid="uid://djsjhg5if37hk" path="res://player.tscn" id="1_mj7dn"]
 [ext_resource type="PackedScene" uid="uid://bd3ja00hjbc3k" path="res://Customer.tscn" id="2_ahmme"]
 [ext_resource type="PackedScene" uid="uid://1yyi5p0mypde" path="res://ingredient.tscn" id="2_m4uao"]
+[ext_resource type="AudioStream" uid="uid://j8etrwdbji8l" path="res://Wilhelm_Scream.ogg" id="5_et5ut"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4tvwp")
@@ -39,6 +40,9 @@ offset_top = -1.0
 offset_right = 2.0
 offset_bottom = 5.0
 show_percentage = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_et5ut")
 
 [connection signal="customerDestroyed" from="Player" to="." method="_on_player_customer_destroyed"]
 [connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]

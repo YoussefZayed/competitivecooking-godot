@@ -20,4 +20,8 @@ position = Vector2(163, 663)
 [node name="AddCustomer" type="Timer" parent="."]
 wait_time = 2.5
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 80.0
+offset_bottom = 73.0
+
 [connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]

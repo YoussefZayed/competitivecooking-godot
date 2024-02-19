@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var speed = 400
+@export var numCustomers = 0
+var points = 0
 var screen_size
 signal hit()
 var touchedItem
@@ -39,5 +41,9 @@ func _on_area_entered(area):
 	if (!touchedItem && area.public_name == 'Ingredient'):
 		touchedItem = area
 	if (touchedItem && area.public_name == 'Customer'):
+		touchedItem.queue_free()
+		area.queue_free()
 		touchedItem = null
+		points += 100
+		
 	

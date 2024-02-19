@@ -5,6 +5,7 @@ var positionToBeAt =  Vector2(0,300)
 @export var numCustomers = 0
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AddCustomer.start()
@@ -21,7 +22,7 @@ func _process(delta):
 
 
 func _on_add_customer_timeout():
-	if(numCustomers < 10):
+	if(numCustomers < 9):
 		positionToBeAt.x += 100
 		if (positionToBeAt.x > 900):
 			positionToBeAt.x = 100
@@ -30,4 +31,13 @@ func _on_add_customer_timeout():
 		customer = customerScene.instantiate()
 		numCustomers+=1
 		add_child(customer)
+		for _i in get_children():
+			if ("public_name" in _i && _i.public_name == "Customer" && _i.position.x ==positionToBeAt.x):
+				positionToBeAt.x += 100
+				if (positionToBeAt.x > 900):
+					positionToBeAt.x = 100
 		customer.position = Vector2(positionToBeAt.x,0)
+
+
+func _on_player_customer_destroyed():
+	numCustomers -=1

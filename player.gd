@@ -7,6 +7,7 @@ var screen_size
 signal hit()
 var touchedItem
 
+signal customerDestroyed()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -45,5 +46,6 @@ func _on_area_entered(area):
 		area.queue_free()
 		touchedItem = null
 		points += 100
+		emit_signal("customerDestroyed")
 		
 	

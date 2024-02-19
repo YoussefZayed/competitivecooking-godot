@@ -46,6 +46,7 @@ func _on_add_customer_timeout():
 func _on_player_customer_destroyed():
 	numCustomers -=1
 <<<<<<< Updated upstream
+	points += 100
 
 
 func _on_add_ingredient_timeout():

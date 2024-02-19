@@ -25,7 +25,7 @@ func _process(delta):
 	$Label.text = "Points: %d" % points
 	$ProgressBar.value = points / 10 % 100
 	$AddCustomer.wait_time = clampf(2.5 - points / 500, 0.5,10.0)
-	$AddIngredient.wait_time = clampf(2.3 - points / 500, 0.5,10.0)
+	$AddIngredient.wait_time = clampf(2.4 - points / 750, 0.5,10.0)
 	$Player.speed = 400 +  points / 5 
 
 

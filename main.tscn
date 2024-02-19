@@ -23,6 +23,12 @@ wait_time = 2.18
 offset_right = 80.0
 offset_bottom = 73.0
 
+[node name="Label" type="Label" parent="."]
+offset_left = 114.0
+offset_top = 27.0
+offset_right = 352.0
+offset_bottom = 93.0
+
 [connection signal="customerDestroyed" from="Player" to="." method="_on_player_customer_destroyed"]
 [connection signal="timeout" from="AddCustomer" to="." method="_on_add_customer_timeout"]
 [connection signal="timeout" from="AddIngredient" to="." method="_on_add_ingredient_timeout"]

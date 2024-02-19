@@ -2,6 +2,7 @@ extends Node
 @export var customerScene: PackedScene
 @export var ingredientsLeft: PackedScene
 var customer
+var points = 0
 var positionToBeAt =  Vector2(0,300)
 @export var numCustomers = 0
 
@@ -21,6 +22,7 @@ func _process(delta):
 		customer.position = Vector2(positionToBeAt.x,customer.position.y + 500 * delta)
 		if (customer.position.y > positionToBeAt.y):
 			customer.position.y = positionToBeAt.y
+	$Label.text = "Points: %d" % points
 
 
 func _on_add_customer_timeout():
@@ -43,6 +45,7 @@ func _on_add_customer_timeout():
 
 func _on_player_customer_destroyed():
 	numCustomers -=1
+<<<<<<< Updated upstream
 
 
 func _on_add_ingredient_timeout():
@@ -51,3 +54,6 @@ func _on_add_ingredient_timeout():
 	ingredient.position = Vector2(rng.randf_range(20, 290.0), rng.randf_range(500.0, 810.0))
 	add_child(ingredient)
 	
+=======
+	points += 100
+>>>>>>> Stashed changes
